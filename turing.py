@@ -2,7 +2,7 @@ def ejecutar_maquina_turing(code):
     cinta = list(code.strip())
     posicion = 0
 
-    # Verificación anticipada: solo se permiten 'a' y 'b'
+    
     if not all(simbolo in {'a', 'b'} for simbolo in cinta):
         return "Resultado: Desconocido ❓ (caracteres inválidos)"
 
