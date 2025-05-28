@@ -1,0 +1,258 @@
+:root {
+  --bg-dark: #1e1e1e;
+  --bg-light: #f9f9f9;
+  --bg-panel-dark: #252526;
+  --bg-panel-light: #e0e0e0;
+  --text-dark: #d4d4d4;
+  --text-light: #1a1a1a;
+  --accent: #569cd6;
+  --btn-bg: #007acc;
+  --btn-hover: #005a9e;
+  --sidebar-width: 160px;
+}
+
+body[data-theme="dark"] {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+body[data-theme="light"] {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Fira Code', monospace;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--bg-panel-dark);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+  border-right: 1px solid #333;
+  transition: background-color 0.3s ease;
+  justify-content: space-between;
+}
+
+body[data-theme="light"] nav.sidebar {
+  background-color: var(--bg-panel-light);
+  border-color: #ccc;
+}
+
+nav.sidebar .titulo {
+  font-weight: bold;
+  font-size: 20px;
+  user-select: none;
+  color: var(--accent);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+nav.sidebar .botones {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+nav.sidebar button {
+  background-color: var(--btn-bg);
+  color: white;
+  border: none;
+  padding: 10px 8px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  width: 100%;
+  justify-content: center;
+}
+
+nav.sidebar button:hover {
+  background-color: var(--btn-hover);
+}
+
+nav.sidebar .bottom-buttons {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+main.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.editor-container {
+  position: relative;
+  display: flex;
+  border: 1px solid #444;
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 150px;
+  flex: 1;
+}
+
+body[data-theme="light"] .editor-container {
+  border-color: #ccc;
+}
+
+#lineNumbers {
+  padding: 15px 6px 15px 8px;
+  background: #2b2b2b;
+  color: #888;
+  text-align: left;
+  user-select: none;
+  border-right: 1px solid #444;
+  white-space: pre;
+  width: 44px;
+  font-size: 14px;
+  line-height: 1.4em;
+  overflow: hidden;
+}
+
+body[data-theme="light"] #lineNumbers {
+  background: #ddd;
+  color: #555;
+  border-color: #ccc;
+}
+
+#editor {
+  padding: 15px;
+  font-size: 14px;
+  flex: 1;
+  outline: none;
+  white-space: pre-wrap;
+  overflow-y: auto;
+  resize: none;
+  min-height: 150px;
+  line-height: 1.4em;
+  color: inherit;
+  background-color: transparent;
+  font-family: 'Fira Code', monospace;
+}
+
+.subrayado-error {
+  text-decoration: underline wavy red;
+  position: relative;
+  cursor: help;
+}
+
+.subrayado-error::after {
+  content: attr(data-error);
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  background-color: rgb(242, 77, 77);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap; 
+  max-width: none;       
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  margin-left: 8px;
+}
+
+.subrayado-error:hover::after {
+  opacity: 1;
+}
+
+.output {
+  background-color: var(--bg-panel-dark);
+  border-left: 4px solid var(--accent);
+  padding: 15px;
+  font-size: 13px;
+  white-space: pre-line;
+  border-radius: 6px;
+  height: 120px;
+  overflow-y: auto;
+  line-height: 1.4em;
+}
+
+body[data-theme="light"] .output {
+  background-color: var(--bg-panel-light);
+}
+
+.line-warning::after {
+  content: " ⚠️";
+  color: #ffcc00;
+  margin-left: 0px;
+}
+
+#btnTema {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: var(--btn-bg);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  user-select: none;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+#btnTema:hover {
+  background-color: var(--btn-hover);
+}
+
+#btnTema input[type="checkbox"] {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+/* ➕ Nueva clase para mostrar etiqueta debajo de línea con error */
+.etiqueta-error {
+  margin-top: 4px;
+  padding: 3px 8px;
+  font-size: 12px;
+  color: #fff;
+  background-color: #ff4d4d;
+  border-radius: 4px;
+  display: inline-block;
+  max-width: 90%;
+  white-space: normal;
+  word-wrap: break-word;
+  position: relative;
+  z-index: 1;
+}
+
+body[data-theme="light"] .etiqueta-error {
+  background-color: #d8000c;
+}

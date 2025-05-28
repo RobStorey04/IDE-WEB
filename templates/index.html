@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IDE Web Profesional</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}" />
+</head>
+<body data-theme="dark">
+
+  <nav class="sidebar" aria-label="Barra lateral">
+    <div>
+      <div class="titulo">🧠 IDE</div>
+      <div class="botones">
+        <button onclick="analizarLexico()">🔍 Léxico</button>
+        <button onclick="analizarSintactico()">🧠 Sintáctico</button>
+        <button onclick="ejecutarTuring()">⚙️ Turing</button>
+      </div>
+    </div>
+    <div class="bottom-buttons">
+      <button onclick="limpiarEditor()">🧹 Limpiar</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="editor-container">
+      <button id="btnTema" aria-label="Cambiar tema">
+        <input type="checkbox" onchange="toggleTema()" id="checkboxTema" />
+        🌗 Tema
+      </button>
+      <div id="lineNumbers"></div>
+      <div id="editor" contenteditable="true" spellcheck="false" oninput="handleEditorInput()"></div>
+    </div>
+
+    <div class="output" id="resultado">Salida:
+🔍 Resultado del análisis ...</div>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
