@@ -2,9 +2,13 @@
 # Analizador Léxico-Sintáctico y Máquina de Turing
 ## Proyecto de Lenguajes y Autómatas
 
+
 **Estudiante:** Hernández Storey Roberto de Jesús
+
 **Profesor:** Molina Gomez Kevin David 
+
 **Materia:** Lenguajes y Autómatas  
+
 **Semestre:** 6to Semestre
 
 ## 📋 Descripción del Proyecto
