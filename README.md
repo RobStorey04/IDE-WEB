@@ -154,7 +154,7 @@ proyecto/
 3. La máquina de Turing puede procesar cadenas independientemente
 
 ## 🤝 Contribuciones
-Este es un proyecto académico desarrollado como parte del curso de Lenguajes y Autómatas.
+Este es un proyecto académico desarrollado como parte del curso de Lenguajes y Autómatas. Si tiene alguna sugerencia para actualizar el ide sera bien tomada 
 
 ## 📜 Licencia
 Este proyecto es para uso educativo únicamente. 
