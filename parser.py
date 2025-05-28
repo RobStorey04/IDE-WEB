@@ -5,16 +5,14 @@ def analizar_sintactico(code):
     palabras_clave = ("if", "while", "for", "def", "else", "elif")
 
     for i, linea in enumerate(lineas, start=1):
-        # Encontrar la posición del comentario si existe
         posicion_comentario = linea.find('#')
         linea_original = linea
         
-        # Si hay comentario, solo analizar hasta ese punto
         if posicion_comentario != -1:
             linea = linea[:posicion_comentario]
         
         linea = linea.strip()
-        if not linea:  # Si la línea está vacía o era solo un comentario
+        if not linea: 
             continue
 
         if ";" in linea:
